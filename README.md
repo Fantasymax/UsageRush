@@ -50,7 +50,12 @@ including when it converges back to the grid.
 ## Install
 
 ```sh
-npm install -g usagerush      # or: git clone … && cd usagerush && npm link
+# From source (works today — zero dependencies, nothing to build):
+git clone https://github.com/Fantasymax/UsageRush.git
+cd UsageRush && npm link        # puts `usagerush` on your PATH
+
+# Or, once published to npm:
+# npm install -g usagerush
 ```
 
 Requires Node.js >= 18 and the provider CLI(s) you want to keep alive (`claude`,
@@ -107,10 +112,14 @@ opens/keeps a window; that's the entire footprint.
 |----|-----------|--------|
 | Windows | Task Scheduler (incl. S4U no-login) | ✅ |
 | macOS | launchd LaunchAgent | ✅ beta (untested by author — reports welcome) |
-| Linux | cron | 🔜 planned |
+| Linux | cron | ✅ beta (untested by author — reports welcome) |
 
 > macOS note: the LaunchAgent runs while you're logged in. True no-login operation
 > needs a LaunchDaemon (root) and isn't installed automatically.
+>
+> Linux note: the cron entry runs via the cron daemon regardless of login (requires
+> `cron` installed and running); `usagerush install` edits your user crontab and
+> preserves your other entries.
 
 ## License
 
