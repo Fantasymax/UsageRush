@@ -1,18 +1,20 @@
 import * as windows from './windows.js';
+import * as macos from './macos.js';
 
-// Phase 1 implements Windows. Linux (cron) and macOS (launchd) are planned (phase 2).
+// Windows (Task Scheduler) and macOS (launchd) implemented. Linux (cron) is planned.
 export function getScheduler() {
   if (process.platform === 'win32') return windows;
+  if (process.platform === 'darwin') return macos;
 
-  const notYet = (name) => () => {
+  const notYet = () => {
     throw new Error(
-      `${process.platform} scheduler not implemented yet (planned: ${process.platform === 'darwin' ? 'launchd' : 'cron'}). ` +
-        `For now run \`usagerush tick\` from your own ${process.platform === 'darwin' ? 'launchd agent / cron' : 'crontab'} every few minutes.`,
+      'Linux scheduler not implemented yet (planned: cron). For now add a crontab entry, e.g.:\n' +
+        '  */5 * * * * <node> <path-to>/usagerush/src/cli.js tick',
     );
   };
   return {
-    installTick: notYet('install'),
-    removeTick: notYet('remove'),
+    installTick: notYet,
+    removeTick: notYet,
     statusTick: () => ({ state: 'unsupported-platform' }),
     needsElevationForNoLogin: false,
   };

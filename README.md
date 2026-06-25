@@ -105,9 +105,12 @@ opens/keeps a window; that's the entire footprint.
 
 | OS | Scheduler | Status |
 |----|-----------|--------|
-| Windows | Task Scheduler (incl. S4U no-login) | ✅ phase 1 |
-| Linux | cron | 🔜 phase 2 |
-| macOS | launchd | 🔜 phase 2 |
+| Windows | Task Scheduler (incl. S4U no-login) | ✅ |
+| macOS | launchd LaunchAgent | ✅ beta (untested by author — reports welcome) |
+| Linux | cron | 🔜 planned |
+
+> macOS note: the LaunchAgent runs while you're logged in. True no-login operation
+> needs a LaunchDaemon (root) and isn't installed automatically.
 
 ## License
 
