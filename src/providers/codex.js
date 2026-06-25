@@ -38,7 +38,13 @@ export default {
     return scanTimestamps(logDir(), sinceMs);
   },
 
+  // `codex exec` runs a non-interactive turn. Safe flags: read-only sandbox (the agent
+  // can't execute/write anything), skip-git-repo-check (we run from a temp dir). We do
+  // NOT use --ephemeral: the ping must persist to ~/.codex/sessions so window detection
+  // sees it (otherwise we'd never detect our own window and would over-ping).
   ping() {
-    return runPing('codex', ['exec', 'hi'], { timeoutMs: 150000 });
+    return runPing('codex', ['exec', '--skip-git-repo-check', '-s', 'read-only', '--color', 'never', 'hi'], {
+      timeoutMs: 180000,
+    });
   },
 };
