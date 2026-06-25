@@ -51,17 +51,28 @@ including when it converges back to the grid.
 
 ## Install
 
-```sh
-# From source (works today — zero dependencies, nothing to build):
-git clone https://github.com/Fantasymax/UsageRush.git
-cd UsageRush && npm link        # puts `usagerush` on your PATH
+**One line, no clone** (needs Node >= 18):
 
-# Or, once published to npm:
-# npm install -g usagerush
+```sh
+# macOS / Linux
+curl -fsSL https://raw.githubusercontent.com/Fantasymax/UsageRush/master/install.sh | sh
+```
+
+```powershell
+# Windows (PowerShell)
+irm https://raw.githubusercontent.com/Fantasymax/UsageRush/master/install.ps1 | iex
+```
+
+Or from source / npm:
+
+```sh
+git clone https://github.com/Fantasymax/UsageRush.git && cd UsageRush && npm link
+# (once published) npm install -g usagerush
 ```
 
 Requires Node.js >= 18 and the provider CLI(s) you want to keep alive (`claude`,
-`codex`) installed and logged in.
+`codex`) installed and logged in. UsageRush itself has zero dependencies and nothing
+to build — it's pure Node.
 
 ## Quick start
 
