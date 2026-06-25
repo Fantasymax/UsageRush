@@ -12,9 +12,11 @@ predictable, memorable clock time instead of whenever you next show up. It only 
 the gaps when you're *idle* — when you're actively using a tool, your own activity
 already keeps the window alive and UsageRush stays out of the way.
 
-> Status: **v0.1, phase 1** — Windows scheduler + Claude provider are complete and
-> dogfooded. Codex is wired in but experimental (window length assumed 5h, headless
-> `codex exec` ping). macOS/Linux schedulers are planned.
+> Status: **v0.1** — Windows (Task Scheduler) + Claude are complete and dogfooded.
+> macOS (launchd) and Linux (cron) are implemented but **beta** (untested by the
+> author — reports welcome). Codex is wired in (5h window confirmed) and **off by
+> default**: its `codex exec` ping consumes your weekly Codex limit, so enable it
+> only if you have weekly headroom.
 
 ## How it works
 
