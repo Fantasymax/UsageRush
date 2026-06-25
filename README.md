@@ -90,6 +90,20 @@ usagerush setup --provider claude --mode fixed --anchors 09:00,15:00,21:00,03:00
 usagerush install --interval 5
 ```
 
+> ### ⚠️ Codex is experimental and OFF by default
+> Codex's keepalive ping (`codex exec`) runs a real turn that counts against your
+> **weekly** Codex limit — and reports suggest a single Codex prompt can be a
+> meaningful slice of that weekly budget. So auto-pinging Codex on a schedule can
+> burn through your weekly quota faster than you'd expect.
+>
+> Enable it **only if you have weekly headroom**, then watch your usage (`/status`
+> inside the Codex TUI). Tune it down or turn it off anytime:
+> ```sh
+> usagerush setup --provider codex --anchors 09:00,21:00 --yes   # fewer pings (2/day)
+> usagerush setup --provider codex --disable --yes               # off
+> ```
+> Claude pings are a few cents and negligible by comparison.
+
 ## Commands
 
 | Command | Description |
