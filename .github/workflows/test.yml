@@ -1,9 +1,13 @@
 name: test
 
+# Manual-only for now: GitHub Actions is unavailable on this account (billing lock),
+# so auto-run on push is disabled to avoid a perpetual red X. To re-enable CI once
+# Actions is available, replace the line below with:
+#   push:
+#     branches: [master, main]
+#   pull_request:
 on:
-  push:
-    branches: [master, main]
-  pull_request:
+  workflow_dispatch:
 
 jobs:
   test:
