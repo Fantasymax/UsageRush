@@ -1,0 +1,10 @@
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+
+# Local runtime data — must never be committed (may contain machine paths / usage)
+.usagerush/
+state-*.json
+*.local.json
+ping.log
