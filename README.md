@@ -1,5 +1,7 @@
 # UsageRush
 
+**English** | [简体中文](README.zh-CN.md)
+
 Keep your **Claude** and **Codex** usage windows on a schedule *you* choose.
 
 Subscription CLIs (Claude Code, Codex) meter you with a rolling **5-hour window**: the
